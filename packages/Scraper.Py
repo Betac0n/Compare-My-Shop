@@ -51,7 +51,7 @@ def Scraper(searchItem):
     soup = BeautifulSoup(webpage.content, "lxml")
 
     # Check if the webpage was found
-    if webpage.url != URL:
+    if webpage.url == "https://www.trolley.co.uk/404/":
         print("The search item was not found, a 404 was issued")
         return
 
