@@ -50,6 +50,11 @@ def Scraper(searchItem):
     webpage = requests.get(URL, headers=HEADERS)
     soup = BeautifulSoup(webpage.content, "lxml")
 
+    # Check if the webpage was found
+    if webpage.url != URL:
+        print("The search item was not found, a 404 was issued")
+        return
+
     # search HTML
 
     # these store ID numbers are based off what the website uses, yes I know they are missing a few numbers, I dont know why

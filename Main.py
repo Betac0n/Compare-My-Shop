@@ -5,6 +5,6 @@ from packages import Scraper, DBSeeder
 Data = Scraper.run("instant coffee")
 #Data = Scraper.run(input()) 
 
-#print(Data)
+print(Data)
 
 DBSeeder.run(Data)
