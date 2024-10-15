@@ -1,6 +1,7 @@
-import re
 from dataclasses import dataclass
 
+# I'm unsure as to wether I should handle the data class exclusivly here or not
+# currently thinking about a way to simplify the process of adding new products, however unsure about how to approach
 @dataclass()
 class product():
 
@@ -17,18 +18,19 @@ class product():
         self.store = store
         self.linkAppend = linkAppend
 
-def run(data):
-    # The data is a list of stuff that looks like this:
-    # product(name='Gold Blend Instant Coffee (100g)', givenID='WHF620', price='3.65', store='Asda', linkAppend='/product/nescafe-gold-blend-instant-coffee/WHF620')
-    # you will need to find a way to extract the data from the labling and put it into a database
+def pullData(data):
 
-    # regex string to extract the data
-    # regex = r"product\(name='(.*?)', givenID='(.*?)', price='(.*?)', store='(.*?)', linkAppend='(.*?)'\)"
+    dataList = list()
 
-    pattern = re.compile(r"product\(name='[^']*', givenID='[^']*', price='[0-9]*\.[0-9]+', store='[^']*', linkAppend='[^']*'\)")
-    
     for i in data:
-        regexstrlst = pattern.match(data)
-        print(regexstrlst)
+        product = i
+        dataList.append(product)
 
-    pass
+    return dataList
+
+def run(data):
+    
+    dataList = pullData(data)
+
+
+    return # return the seeder file to Main
